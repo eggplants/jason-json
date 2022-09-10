@@ -5,9 +5,9 @@
   )](
   https://badge.fury.io/py/jason-json
 ) [![Maintainability](
-
+  https://api.codeclimate.com/v1/badges/20d58be4ccf5c4c8e008/maintainability
   )](
-  <https://codeclimate.com/github/eggplants/getjump/maintainability>
+    https://codeclimate.com/github/eggplants/jason-json/maintainability
 ) [![pre-commit.ci status](
   https://results.pre-commit.ci/badge/github/eggplants/jason-json/master.svg
   )](
