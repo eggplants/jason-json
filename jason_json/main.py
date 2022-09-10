@@ -65,13 +65,6 @@ def parse_args() -> argparse.Namespace:
         help="save json to given path",
     )
     parser.add_argument(
-        "-s",
-        "--save",
-        type=check_path,
-        metavar="PATH",
-        help="save json to given path",
-    )
-    parser.add_argument(
         "-u",
         "--url",
         type=str,

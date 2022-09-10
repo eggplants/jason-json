@@ -24,6 +24,58 @@
 
 [Jason](https://jason.co.jp) JSON Builder
 
+## Install
+
+```bash
+pip install git+https://github.com/eggplants/jason-json
+# or...
+pip install jason-json
+```
+
+## CLI Usage
+
+You can run this program as `jason-json` or `jason.json` on CLI.
+
+```shellsession
+$ jason.json -i 2
+{
+  "東京都": [
+    {
+      "name": "足立鹿浜店",
+      "address": "東京都足立区鹿浜6-34-19",
+      "link": "http://jason.co.jp/wptest/?p=5079",
+      "business_time": {
+        "begin_sec": 36000,
+        "end_sec": 79200,
+        "duration_sec": 43200,
+        "duration_str": "10:00～22:00"
+      }
+    },
+    ...
+  ],
+  "群馬県": [
+    ...
+  ]
+}
+```
+
+### Help
+
+```shellsession
+$ jason.json -h
+usage: jason.json [-h] [-O] [-i NAT] [-s PATH] [-u URL] [-V]
+
+Jason (jason.co.jp) JSON Builder
+
+options:
+  -h, --help            show this help message and exit
+  -O, --overwrite       overwrite if save path already exists (default: False)
+  -i NAT, --indent NAT  indent json (default: None)
+  -s PATH, --save PATH  save json to given path (default: None)
+  -u URL, --url URL     target url (default: https://jason.co.jp/network)
+  -V, --version         show program's version number and exit
+```
+
 ## License
 
 MIT
