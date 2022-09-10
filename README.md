@@ -59,6 +59,8 @@ $ jason.json -i 2
 }
 ```
 
+[`jason.json`](https://github.com/eggplants/jason-json/blob/master/jason.json) is the result with running `jason.json -O -s jason.json -i 2`.
+
 ### Help
 
 ```shellsession
