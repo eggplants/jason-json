@@ -7,7 +7,7 @@
 ) [![Maintainability](
 
   )](
-  https://codeclimate.com/github/eggplants/getjump/maintainability
+  <https://codeclimate.com/github/eggplants/getjump/maintainability>
 ) [![pre-commit.ci status](
   https://results.pre-commit.ci/badge/github/eggplants/jason-json/master.svg
   )](

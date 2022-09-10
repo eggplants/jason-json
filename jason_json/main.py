@@ -1,86 +1,107 @@
-import urllib.request
-from datetime import datetime
-import bs4
+import argparse
 import json
-import re
+import os
+import ssl
+import sys
+from shutil import get_terminal_size
 
-from typing import TypedDict
+from . import __version__
+from .utils import get, parse
 
-class BusinessTime(TypedDict):
-  begin_sec: int
-  end_sec: int
-  duration_sec: int
-
-class Shop(TypedDict):
-  name: str | None
-  address: str
-  link: str | None
-  business_time: BusinessTime | None
-
-Shops = list[Shop]
-
-Data = dict[str, list[Shops]]
-
-def get(url: str) -> str:
-  html = urllib.request.urlopen(url)
-
-def parse(source: str) -> Data:
-  bs = bs4.BeautifulSoup(source)
-  prefs = bs.select("div[class='elementor-toggle-item']")
-  json_dict: Data = {}
-  for pref in prefs:
-    pref_name = pref.select_one("div[class='elementor-toggle-title']")
-    table = pref.select_one("table[class='table table-network']")
-    json_dict[pref_name] = parse_table(table)
-
-def parse_table(table: bs4.Tag | None) -> list[Shop]:
-  shops: Shops = []
-  if table is None:
-    return shops
-
-  for row in table.select("tr"):
-    first, second, *_ = row.select("td")
-    link_a = first.select_one("a"),
-    address, business_time = str(second.string).split("営業時間:", 1)
-
-    shop: Shop = {
-      "link": None if link_a is None else link_a.href,
-      "name": first.string,
-      "business_time": business_time,
-      "address": address,
-      "business_time": parse_business_time(business_time)
-    }
-    shops.append(shop)
-  else:
-    return shops
-
-def parse_business_time(business_time: str) -> BusinessTime | None:
-  m = re.match(r'^(\d\d:\d\d)〜(\d\d:\d\d)', business_time)
-  if m is None:
-    return None
-
-  begin_str, end_str = business_time.groups
-
-  zero_time = parse_time("00:00")
-  begin_time = parse_time(begin_str)
-  end_time = parse_time(end_str)
-
-  return {
-    "begin_sec": (begin_time - zero_time).seconds,
-    "end_sec": (end_time - zero_time).seconds,
-    "duration_sec": (end_time - begin_time).seconds,
-  }
-
-def parse_time(time: str) -> datetime:
-  return datetime.strptime(time, "%H:%M")
+ssl._create_default_https_context = ssl._create_unverified_context
 
 
+class CustomFormatter(
+    argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter
+):
+    pass
 
-def main():
-  source = get("https://jason.co.jp/network/")
-  data = parse(source)
-  json_str = json.dumps(data, indent=2)
-  print(json_str)
+
+def check_path(v: str) -> str:
+    if os.path.isdir(v):
+        raise argparse.ArgumentTypeError(f"'{v}' already exists as a directory.")
+    return v
+
+
+def check_natural(v: str) -> int:
+    v_int = int(v)
+    if v_int < 0:
+        raise argparse.ArgumentTypeError(f"'{v}' should be natural (>=0).")
+    return v_int
+
+
+def parse_args() -> argparse.Namespace:
+    """Parse arguments."""
+    parser = argparse.ArgumentParser(
+        formatter_class=(
+            lambda prog: CustomFormatter(
+                prog,
+                **{
+                    "width": get_terminal_size(fallback=(120, 50)).columns,
+                    "max_help_position": 25,
+                },
+            )
+        ),
+        description="Jason (jason.co.jp) JSON Builder",
+    )
+    parser.add_argument(
+        "-O",
+        "--overwrite",
+        action="store_true",
+        help="overwrite if save path already exists",
+    )
+    parser.add_argument(
+        "-i",
+        "--indent",
+        metavar="NAT",
+        type=check_natural,
+        help="indent json",
+    )
+    parser.add_argument(
+        "-s",
+        "--save",
+        type=check_path,
+        metavar="PATH",
+        help="save json to given path",
+    )
+    parser.add_argument(
+        "-s",
+        "--save",
+        type=check_path,
+        metavar="PATH",
+        help="save json to given path",
+    )
+    parser.add_argument(
+        "-u",
+        "--url",
+        type=str,
+        default="https://jason.co.jp/network",
+        metavar="URL",
+        help="target url",
+    )
+    parser.add_argument("-V", "--version", action="version", version=__version__)
+
+    return parser.parse_args()
+
+
+def main() -> None:
+    args = parse_args()
+    source = get(args.url)
+    if source is None:
+        raise ValueError(f"Failed to fetch source from {args.url}")
+    data = parse(source)
+    json_str = json.dumps(data, indent=args.indent, ensure_ascii=False)
+    if args.save:
+        if os.path.exists(args.save) and not args.overwrite:
+            print(
+                "'{args.save}' already exists. Specify `-O` to overwrite.",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+        print(json_str, file=open(args.save, "w"))
+    else:
+        print(json_str)
+
 
 if __name__ == "__main__":
-  main()
+    main()
