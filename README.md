@@ -1,4 +1,4 @@
-# jason-json
+# [![jason logo](https://jason.co.jp/favicon.ico)](https://jason.co.jp/) jason-json
 
 [![PyPI version](
   https://badge.fury.io/py/jason-json.svg
