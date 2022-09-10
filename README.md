@@ -76,6 +76,14 @@ options:
   -V, --version         show program's version number and exit
 ```
 
+### from Docker
+
+Try:
+
+```bash
+docker run -it ghcr.io/eggplants/jason-json -h
+```
+
 ## License
 
 MIT
