@@ -1,9 +1,9 @@
 # [![jason logo](https://jason.co.jp/favicon.ico)](https://jason.co.jp/) jason-json
 
 [![PyPI version](
-  https://badge.fury.io/py/jason-json.svg
+  https://img.shields.io/pypi/v/jason-json?color=blue
   )](
-  https://badge.fury.io/py/jason-json
+  https://pypi.org/project/jason-json/
 ) [![Maintainability](
   https://api.codeclimate.com/v1/badges/20d58be4ccf5c4c8e008/maintainability
   )](
