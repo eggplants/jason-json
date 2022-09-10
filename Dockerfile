@@ -4,4 +4,4 @@ RUN pip install --upgrade pip
 
 RUN python -m pip install git+https://github.com/eggplants/jason-json
 
-ENTRYPOINT ["getjump"]
+ENTRYPOINT ["jason.json"]
