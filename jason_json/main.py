@@ -6,6 +6,7 @@ import sys
 from shutil import get_terminal_size
 
 from . import __version__
+from .types import Args
 from .utils import get, parse
 
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -30,7 +31,7 @@ def check_natural(v: str) -> int:
     return v_int
 
 
-def parse_args() -> argparse.Namespace:
+def parse_args(args: list[str] = sys.argv[1:]) -> Args:
     """Parse arguments."""
     parser = argparse.ArgumentParser(
         formatter_class=(
@@ -74,7 +75,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("-V", "--version", action="version", version=__version__)
 
-    return parser.parse_args()
+    return Args(parser.parse_args(args))
 
 
 def main() -> None:

@@ -1,5 +1,16 @@
 from typing import TypedDict
 
+from typed_argparse import TypedArgs
+
+
+class Args(TypedArgs):
+    help: bool
+    indent: int | None
+    overwrite: bool
+    save: bool
+    url: str
+    version: bool
+
 
 class BusinessTime(TypedDict):
     begin_sec: int
