@@ -19,7 +19,7 @@
 ) ![ghcr size](
   https://ghcr-badge.herokuapp.com/eggplants/jason-json/size)
 ](
-  https://github.com/eggplants/jason-json/pkgs/container/getjump
+  https://github.com/eggplants/jason-json/pkgs/container/jason-json
 )
 
 [Jason](https://jason.co.jp) JSON Builder
