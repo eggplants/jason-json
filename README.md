@@ -15,9 +15,9 @@
 )
 
 [![ghcr latest](
-  https://ghcr-badge.herokuapp.com/eggplants/jason-json/latest_tag?trim=major&label=latest
+  https://ghcr-badge.deta.dev/eggplants/jason-json/latest_tag?trim=major&label=latest
 ) ![ghcr size](
-  https://ghcr-badge.herokuapp.com/eggplants/jason-json/size)
+  https://ghcr-badge.deta.dev/eggplants/jason-json/size)
 ](
   https://github.com/eggplants/jason-json/pkgs/container/jason-json
 )
