@@ -1,25 +1,25 @@
 # [![jason logo](https://jason.co.jp/favicon.ico)](https://jason.co.jp/) jason-json
 
 [![PyPI version](
-  https://img.shields.io/pypi/v/jason-json?color=blue
+  <https://img.shields.io/pypi/v/jason-json?color=blue>
   )](
-  https://pypi.org/project/jason-json/
+  <https://pypi.org/project/jason-json/>
 ) [![Maintainability](
-  https://api.codeclimate.com/v1/badges/20d58be4ccf5c4c8e008/maintainability
+  <https://api.codeclimate.com/v1/badges/20d58be4ccf5c4c8e008/maintainability>
   )](
-    https://codeclimate.com/github/eggplants/jason-json/maintainability
+    <https://codeclimate.com/github/eggplants/jason-json/maintainability>
 ) [![pre-commit.ci status](
-  https://results.pre-commit.ci/badge/github/eggplants/jason-json/master.svg
+  <https://results.pre-commit.ci/badge/github/eggplants/jason-json/master.svg>
   )](
-  https://results.pre-commit.ci/latest/github/eggplants/jason-json/master
+  <https://results.pre-commit.ci/latest/github/eggplants/jason-json/master>
 )
 
 [![ghcr latest](
-  https://ghcr-badge.deta.dev/eggplants/jason-json/latest_tag?trim=major&label=latest
+  <https://ghcr-badge.deta.dev/eggplants/jason-json/latest_tag?trim=major&label=latest>
 ) ![ghcr size](
-  https://ghcr-badge.deta.dev/eggplants/jason-json/size)
+  <https://ghcr-badge.deta.dev/eggplants/jason-json/size>)
 ](
-  https://github.com/eggplants/jason-json/pkgs/container/jason-json
+  <https://github.com/eggplants/jason-json/pkgs/container/jason-json>
 )
 
 [Jason](https://jason.co.jp) JSON Builder
