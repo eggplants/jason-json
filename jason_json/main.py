@@ -24,9 +24,8 @@ def main(test_args: list[str] | None = None) -> None:
         msg = f"Failed to fetch source from {args.url}"
         raise ValueError(msg)
     data = parse(source)
-    json_str = json.dumps(data, indent=args.indent, ensure_ascii=False)
     if not args.save:
-        print(json_str)  # noqa: T201
+        print(json.dumps(data, indent=args.indent, ensure_ascii=False))  # noqa: T201
         sys.exit(0)
     if args.save.exists() and not args.save.is_file():
         print(  # noqa: T201
@@ -40,7 +39,8 @@ def main(test_args: list[str] | None = None) -> None:
             file=sys.stderr,
         )
         sys.exit(1)
-    print(json_str, file=args.save.open("w"))
+    with args.save.open("w") as f:
+        json.dump(data, f, indent=args.indent, ensure_ascii=False)
 
 
 if __name__ == "__main__":
