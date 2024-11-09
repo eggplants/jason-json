@@ -39,7 +39,7 @@ def main(test_args: list[str] | None = None) -> None:
             file=sys.stderr,
         )
         sys.exit(1)
-    with args.save.open("w") as f:
+    with args.save.open("w", encoding="utf-8", errors="ignore") as f:
         json.dump(data, f, indent=args.indent, ensure_ascii=False)
 
 

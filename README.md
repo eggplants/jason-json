@@ -8,7 +8,11 @@
   <https://api.codeclimate.com/v1/badges/20d58be4ccf5c4c8e008/maintainability>
   )](
     <https://codeclimate.com/github/eggplants/jason-json/maintainability>
-) [![pre-commit.ci status](
+) [![Test Coverage](
+  <https://api.codeclimate.com/v1/badges/20d58be4ccf5c4c8e008/test_coverage>
+  )](
+    <https://codeclimate.com/github/eggplants/jason-json/test_coverage>
+  ) [![pre-commit.ci status](
   <https://results.pre-commit.ci/badge/github/eggplants/jason-json/master.svg>
   )](
   <https://results.pre-commit.ci/latest/github/eggplants/jason-json/master>
