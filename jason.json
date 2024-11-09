@@ -199,17 +199,6 @@
       }
     },
     {
-      "name": "国分寺並木町店",
-      "address": "東京都国分寺市並木町3-23-2",
-      "link": "http://jason.co.jp/wptest/?p=5172",
-      "business_time": {
-        "begin_sec": 36000,
-        "end_sec": 82800,
-        "duration_sec": 46800,
-        "duration_str": "10:00～23:00"
-      }
-    },
-    {
       "name": "八王子宇津木台店",
       "address": "東京都八王子市久保山町2-45-2",
       "link": "http://jason.co.jp/wptest/?p=5176",
@@ -240,6 +229,17 @@
         "end_sec": 82800,
         "duration_sec": 46800,
         "duration_str": "10:00～23:00"
+      }
+    },
+    {
+      "name": "東村山青葉町店",
+      "address": "東京都東村山市青葉町1-1-29",
+      "link": "https://jason.co.jp/%e5%ba%97%e8%88%97%e8%a9%b3%e7%b4%b0-%e6%9d%b1%e6%9d%91%e5%b1%b1%e9%9d%92%e8%91%89%e5%ba%97/",
+      "business_time": {
+        "begin_sec": 32400,
+        "end_sec": 75600,
+        "duration_sec": 43200,
+        "duration_str": "9:00～21:00"
       }
     },
     {
@@ -465,17 +465,6 @@
       }
     },
     {
-      "name": "江戸川台店",
-      "address": "千葉県流山市美原4-1212",
-      "link": "http://jason.co.jp/wptest/?p=5291",
-      "business_time": {
-        "begin_sec": 36000,
-        "end_sec": 79200,
-        "duration_sec": 43200,
-        "duration_str": "10:00～22:00"
-      }
-    },
-    {
       "name": "南流山店",
       "address": "千葉県流山市南流山2-8-9",
       "link": "http://jason.co.jp/wptest/?p=5295",
@@ -664,7 +653,7 @@
     },
     {
       "name": "東金店",
-      "address": "千葉県東金店田間1280-1",
+      "address": "千葉県東金市田間1280-1",
       "link": "https://jason.co.jp/%e5%ba%97%e8%88%97%e8%a9%b3%e7%b4%b0-%e6%9d%b1%e9%87%91%e5%ba%97/",
       "business_time": {
         "begin_sec": 32400,
@@ -694,9 +683,9 @@
       "link": "http://jason.co.jp/wptest/?p=5381",
       "business_time": {
         "begin_sec": 36000,
-        "end_sec": 82800,
-        "duration_sec": 46800,
-        "duration_str": "10:00～23:00"
+        "end_sec": 79200,
+        "duration_sec": 43200,
+        "duration_str": "10:00～22:00"
       }
     },
     {
@@ -876,6 +865,17 @@
       }
     },
     {
+      "name": "入間下藤沢店",
+      "address": "埼玉県入間市下藤沢667-1",
+      "link": "https://jason.co.jp/%e5%ba%97%e8%88%97%e8%a9%b3%e7%b4%b0-%e5%85%a5%e9%96%93%e4%b8%8b%e8%97%a4%e6%b2%a2%e5%ba%97/",
+      "business_time": {
+        "begin_sec": 32400,
+        "end_sec": 75600,
+        "duration_sec": 43200,
+        "duration_str": "9:00～21:00"
+      }
+    },
+    {
       "name": "鶴ヶ島店",
       "address": "埼玉県鶴ヶ島市脚折町6-33-1",
       "link": "http://jason.co.jp/wptest/?p=5476",
@@ -983,6 +983,17 @@
         "end_sec": 77400,
         "duration_sec": 45000,
         "duration_str": "9:00～21:30"
+      }
+    },
+    {
+      "name": "熊谷石原店",
+      "address": "埼玉県熊谷市石原344-2",
+      "link": "https://jason.co.jp/?p=154781&preview=true",
+      "business_time": {
+        "begin_sec": 32400,
+        "end_sec": 75600,
+        "duration_sec": 43200,
+        "duration_str": "9:00～21:00"
       }
     }
   ],
@@ -1140,6 +1151,50 @@
         "duration_sec": 43200,
         "duration_str": "10:00～22:00"
       }
+    },
+    {
+      "name": "稲敷江戸崎店",
+      "address": "茨城県稲敷市佐倉3326-1",
+      "link": "https://jason.co.jp/%e5%ba%97%e8%88%97%e8%a9%b3%e7%b4%b0-%e7%a8%b2%e6%95%b7%e6%b1%9f%e6%88%b8%e5%b4%8e%e5%ba%97/",
+      "business_time": {
+        "begin_sec": 36000,
+        "end_sec": 75600,
+        "duration_sec": 39600,
+        "duration_str": "10:00～21:00"
+      }
+    },
+    {
+      "name": "神栖波崎店",
+      "address": "茨城県神栖市波崎6886-1",
+      "link": "https://jason.co.jp/店舗詳細-神栖波崎店",
+      "business_time": {
+        "begin_sec": 32400,
+        "end_sec": 75600,
+        "duration_sec": 43200,
+        "duration_str": "9:00～21:00"
+      }
+    },
+    {
+      "name": "つくばみどりの店",
+      "address": "茨城県つくば市みどりの中央40-2",
+      "link": "https://jason.co.jp/店舗詳細-つくばみどりの",
+      "business_time": {
+        "begin_sec": 32400,
+        "end_sec": 75600,
+        "duration_sec": 43200,
+        "duration_str": "9:00～21:00"
+      }
+    },
+    {
+      "name": "常陸太田宮本町店",
+      "address": "茨城県常陸太田市宮本町4274",
+      "link": "https://jason.co.jp/%E5%BA%97%E8%88%97%E8%A9%B3%E7%B4%B0-%E5%B8%B8%E9%99%B8%E5%A4%AA%E7%94%B0%E5%AE%AE%E6%9C%AC%E7%94%BA%E5%BA%97/",
+      "business_time": {
+        "begin_sec": 32400,
+        "end_sec": 75600,
+        "duration_sec": 43200,
+        "duration_str": "9:00～21:00"
+      }
     }
   ],
   "栃木県": [
@@ -1169,6 +1224,17 @@
       "name": "鹿沼上殿店",
       "address": "栃木県鹿沼市上殿町字宿西165-1",
       "link": "https://jason.co.jp/?p=110905&preview=true",
+      "business_time": {
+        "begin_sec": 32400,
+        "end_sec": 75600,
+        "duration_sec": 43200,
+        "duration_str": "9:00～21:00"
+      }
+    },
+    {
+      "name": "那須烏山店",
+      "address": "栃木県那須烏山市城東1853",
+      "link": "https://jason.co.jp/店舗詳細-那須烏山店",
       "business_time": {
         "begin_sec": 32400,
         "end_sec": 75600,
@@ -1215,6 +1281,17 @@
       "name": "前橋駒形店",
       "address": "群馬県前橋市駒形町字西高島64－1",
       "link": "https://jason.co.jp/店舗詳細-前橋駒形店",
+      "business_time": {
+        "begin_sec": 32400,
+        "end_sec": 75600,
+        "duration_sec": 43200,
+        "duration_str": "9:00～21:00"
+      }
+    },
+    {
+      "name": "前橋北代田店",
+      "address": "群馬県前橋市北代田町488−1",
+      "link": "https://jason.co.jp/店舗詳細-前橋北代田店",
       "business_time": {
         "begin_sec": 32400,
         "end_sec": 75600,

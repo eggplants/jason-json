@@ -1,100 +1,38 @@
-import argparse
-import json
-import os
-import ssl
-import sys
-from shutil import get_terminal_size
+"""Main module."""
 
-from . import __version__
+from __future__ import annotations
+
+import json
+import sys
+
 from .types import Args
 from .utils import get, parse
-
-ssl._create_default_https_context = ssl._create_unverified_context
-
-
-class CustomFormatter(
-    argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter
-):
-    pass
-
-
-def check_path(v: str) -> str:
-    if os.path.isdir(v):
-        raise argparse.ArgumentTypeError(f"'{v}' already exists as a directory.")
-    return v
-
-
-def check_natural(v: str) -> int:
-    v_int = int(v)
-    if v_int < 0:
-        raise argparse.ArgumentTypeError(f"'{v}' should be natural (>=0).")
-    return v_int
 
 
 def parse_args(args: list[str] = sys.argv[1:]) -> Args:
     """Parse arguments."""
-    parser = argparse.ArgumentParser(
-        formatter_class=(
-            lambda prog: CustomFormatter(
-                prog,
-                **{
-                    "width": get_terminal_size(fallback=(120, 50)).columns,
-                    "max_help_position": 25,
-                },
-            )
-        ),
-        description="Jason (jason.co.jp) JSON Builder",
-    )
-    parser.add_argument(
-        "-O",
-        "--overwrite",
-        action="store_true",
-        help="overwrite if save path already exists",
-    )
-    parser.add_argument(
-        "-i",
-        "--indent",
-        metavar="NAT",
-        type=check_natural,
-        help="indent json",
-    )
-    parser.add_argument(
-        "-s",
-        "--save",
-        type=check_path,
-        metavar="PATH",
-        help="save json to given path",
-    )
-    parser.add_argument(
-        "-u",
-        "--url",
-        type=str,
-        default="https://jason.co.jp/network",
-        metavar="URL",
-        help="target url",
-    )
-    parser.add_argument("-V", "--version", action="version", version=__version__)
-
-    return Args(parser.parse_args(args))
+    return Args().parse_args(args)
 
 
 def main() -> None:
+    """Execute command with argument."""
     args = parse_args()
     source = get(args.url)
     if source is None:
-        raise ValueError(f"Failed to fetch source from {args.url}")
+        msg = f"Failed to fetch source from {args.url}"
+        raise ValueError(msg)
     data = parse(source)
     json_str = json.dumps(data, indent=args.indent, ensure_ascii=False)
-    if args.save:
-        if os.path.exists(args.save) and not args.overwrite:
-            print(
-                "'{args.save}' already exists. Specify `-O` to overwrite.",
-                file=sys.stderr,
-            )
-            sys.exit(1)
-        print(json_str, file=open(args.save, "w"))
-    else:
-        print(json_str)
+    if not args.save:
+        print(json_str)  # noqa: T201
+        sys.exit(0)
+    if args.save.is_file() and not args.overwrite:
+        print(  # noqa: T201
+            "'{args.save}' already exists. Specify `-O` to overwrite.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+    print(json_str, file=args.save.open("w"))
 
 
 if __name__ == "__main__":

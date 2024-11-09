@@ -1,25 +1,32 @@
-import json
+"""Utility functions for jason_json module."""
+
+from __future__ import annotations
+
 import re
-import ssl
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timezone
 from http.client import HTTPResponse
-from typing import cast
+from typing import TYPE_CHECKING, cast
 
 import bs4
 
-from .types import BusinessTime, Data, Shop
-
-ssl._create_default_https_context = ssl._create_unverified_context
+if TYPE_CHECKING:
+    from .types import BusinessTime, Data, Shop
 
 
 def get(url: str) -> bytes | None:
-    with urllib.request.urlopen(url) as response:
+    """Fetch source from given URL."""
+    if not url.startswith(("http:", "https:")):
+        msg = "URL must start with 'http:' or 'https:'"
+        raise ValueError(msg)
+
+    with urllib.request.urlopen(url) as response:  # noqa: S310
         res = cast(HTTPResponse, response)
         return res.read() if res.readable() else None
 
 
 def parse(source: bytes) -> Data:
+    """Parse source and return data."""
     bs = bs4.BeautifulSoup(source, features="lxml")
     prefs = bs.select("div.elementor-toggle-item")
     data: Data = {}
@@ -48,8 +55,7 @@ def _parse_table(table: bs4.Tag | None) -> list[Shop]:
             "business_time": _parse_business_time(business_time),
         }
         shops.append(shop)
-    else:
-        return shops
+    return shops
 
 
 def _parse_shop_name(shop_link_a: bs4.Tag | None) -> str | None:
@@ -69,7 +75,7 @@ def _parse_shop_link(shop_link_a: bs4.Tag | None) -> str | None:
 
 def _parse_business_time(business_time: str) -> BusinessTime | None:
     def _parse_time(time: str) -> datetime:
-        return datetime.strptime(time, "%H:%M")
+        return datetime.strptime(time, "%H:%M").astimezone(timezone.utc)
 
     m = re.match(r"(\d+:\d+)～(\d+:\d+)", business_time)
     if m is None:
@@ -87,17 +93,3 @@ def _parse_business_time(business_time: str) -> BusinessTime | None:
         "duration_sec": (end_time - begin_time).seconds,
         "duration_str": m.group(),
     }
-
-
-def example_main() -> None:
-    URL = "https://jason.co.jp/network/"
-    source = get(URL)
-    if source is None:
-        raise ValueError(f"Failed to fetch source from {URL}")
-    data = parse(source)
-    json_str = json.dumps(data, indent=2, ensure_ascii=False)
-    print(json_str)
-
-
-if __name__ == "__main__":
-    example_main()
