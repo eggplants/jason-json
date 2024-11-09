@@ -11,7 +11,7 @@ from .utils import get, parse
 
 def parse_args(test_args: list[str] | None = None) -> Args:
     """Parse arguments."""
-    if not test_args:
+    if test_args is None:
         return Args().parse_args()
     return Args().parse_args(test_args)
 
