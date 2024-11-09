@@ -75,7 +75,7 @@ def _parse_shop_link(shop_link_a: bs4.Tag | None) -> str | None:
 
 def _parse_business_time(business_time: str) -> BusinessTime | None:
     def _parse_time(time: str) -> datetime:
-        return datetime.strptime(time, "%H:%M").astimezone(timezone.utc)
+        return datetime.strptime(time, "%H:%M").replace(tzinfo=timezone.utc)
 
     m = re.match(r"(\d+:\d+)～(\d+:\d+)", business_time)
     if m is None:
