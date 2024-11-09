@@ -9,14 +9,16 @@ from .types import Args
 from .utils import get, parse
 
 
-def parse_args(args: list[str] = sys.argv[1:]) -> Args:
+def parse_args(test_args: list[str] | None = None) -> Args:
     """Parse arguments."""
-    return Args().parse_args(args)
+    if not test_args:
+        return Args().parse_args()
+    return Args().parse_args(test_args)
 
 
-def main() -> None:
+def main(test_args: list[str] | None = None) -> None:
     """Execute command with argument."""
-    args = parse_args()
+    args = parse_args(test_args)
     source = get(args.url)
     if source is None:
         msg = f"Failed to fetch source from {args.url}"
@@ -26,9 +28,15 @@ def main() -> None:
     if not args.save:
         print(json_str)  # noqa: T201
         sys.exit(0)
+    if args.save.exists() and not args.save.is_file():
+        print(  # noqa: T201
+            f"'{args.save}' is not a file.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
     if args.save.is_file() and not args.overwrite:
         print(  # noqa: T201
-            "'{args.save}' already exists. Specify `-O` to overwrite.",
+            f"'{args.save}' already exists. Specify `-O` to overwrite.",
             file=sys.stderr,
         )
         sys.exit(1)
