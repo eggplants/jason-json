@@ -43,20 +43,28 @@ pip install jason-json
 You can run this program as `jason-json` or `jason.json` on CLI.
 
 ```shellsession
-$ jason.json -i 2
+$ jason.json | jq '[to_entries[] | {(.key): .value | length}] | add'
 {
-  "東京都": [
-    {
-      "name": "足立鹿浜店",
-      "address": "東京都足立区鹿浜6-34-19",
-      "link": "http://jason.co.jp/wptest/?p=5079",
-      "business_time": {
-        "begin_sec": 36000,
-        "end_sec": 79200,
-        "duration_sec": 43200,
-        "duration_str": "10:00～22:00"
-      }
-    },
+  "東京都": 27,
+  "千葉県": 33,
+  "神奈川県": 1,
+  "埼玉県": 29,
+  "茨城県": 18,
+  "栃木県": 4,
+  "群馬県": 5
+}
+$ jason.json | jq '."東京都"[0]'
+{
+  "name": "足立鹿浜店",
+  "address": "東京都足立区鹿浜6-34-19",
+  "link": "http://jason.co.jp/wptest/?p=5079",
+  "business_time": {
+    "begin_sec": 36000,
+    "end_sec": 79200,
+    "duration_sec": 43200,
+    "duration_str": "10:00～22:00"
+  }
+}
 ```
 
 [`jason.json`](https://github.com/eggplants/jason-json/blob/master/jason.json) is the result with running `jason.json -O -s jason.json -i 2`.
@@ -65,7 +73,7 @@ $ jason.json -i 2
 
 ```shellsession
 $ jason.json -h
-usage: jason-json [-i INDENT] [-O] [-s SAVE] [-u URL] [-V] [-h]
+usage: jason.json [-i INDENT] [-O] [-s SAVE] [-u URL] [-V] [-h]
 
 Jason (https://jason.co.jp) JSON Builder.
 
