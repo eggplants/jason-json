@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import argparse
-from pathlib import Path  # noqa: TCH003
+from pathlib import Path  # noqa: TC003
 from shutil import get_terminal_size
 from typing import TypedDict
 
@@ -65,4 +65,4 @@ class Shop(TypedDict):
 
 Data = dict[str, list[Shop]]
 
-__all__ = ("Args", "BusinessTime", "Shop", "Data")
+__all__ = ("Args", "BusinessTime", "Data", "Shop")
