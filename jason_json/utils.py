@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING, cast
 import bs4
 
 if TYPE_CHECKING:
-    from .types import BusinessTime, Data, Shop
+    from .model_types import BusinessTime, Data, Shop
 
 
 def get(url: str) -> bytes | None:

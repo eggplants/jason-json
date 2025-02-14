@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 import sys
 
-from .types import Args
+from .model_types import Args
 from .utils import get, parse
 
 
