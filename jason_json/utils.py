@@ -21,7 +21,7 @@ def get(url: str) -> bytes | None:
         raise ValueError(msg)
 
     with urllib.request.urlopen(url) as response:  # noqa: S310
-        res = cast(HTTPResponse, response)
+        res = cast("HTTPResponse", response)
         return res.read() if res.readable() else None
 
 
