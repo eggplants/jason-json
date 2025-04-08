@@ -10,14 +10,25 @@ from .utils import get, parse
 
 
 def parse_args(test_args: list[str] | None = None) -> Args:
-    """Parse arguments."""
+    """Parse arguments.
+
+    Args:
+        test_args (list[str] | None): Arguments to parse. If None, use sys.argv[1:].
+
+    Returns:
+        Args: Parsed arguments.
+    """
     if test_args is None:
         return Args().parse_args()
     return Args().parse_args(test_args)
 
 
 def main(test_args: list[str] | None = None) -> None:
-    """Execute command with argument."""
+    """Execute command with argument.
+
+    Args:
+        test_args (list[str] | None): Arguments to parse. If None, use sys.argv[1:].
+    """
     args = parse_args(test_args)
     source = get(args.url)
     if source is None:

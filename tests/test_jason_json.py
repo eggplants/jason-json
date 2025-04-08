@@ -43,8 +43,16 @@ def test_cli_write_file(tmp_path: Path, capfd: pytest.CaptureFixture[str]) -> No
     captured = capfd.readouterr()
     assert not captured.out
     assert not captured.err
-    assert path.open("r", encoding="utf-8", errors="ignore").read().startswith('{\n  "東京都": [')
-    assert path.open("r", encoding="utf-8", errors="ignore").read().endswith("      }\n    }\n  ]\n}")
+    assert (
+        path.open("r", encoding="utf-8", errors="ignore")
+        .read()
+        .startswith('{\n  "東京都": [')
+    )
+    assert (
+        path.open("r", encoding="utf-8", errors="ignore")
+        .read()
+        .endswith("      }\n    }\n  ]\n}")
+    )
 
 
 def test_cli_empty_output_path(capfd: pytest.CaptureFixture[str]) -> None:
@@ -57,7 +65,9 @@ def test_cli_empty_output_path(capfd: pytest.CaptureFixture[str]) -> None:
     assert "expected one argument" in captured.err
 
 
-def test_cli_output_path_is_dir(tmp_path: Path, capfd: pytest.CaptureFixture[str]) -> None:
+def test_cli_output_path_is_dir(
+    tmp_path: Path, capfd: pytest.CaptureFixture[str],
+) -> None:
     """Test CLI with output path is a directory."""
     with pytest.raises(SystemExit) as e:
         main(test_args=["--save", str(tmp_path)])

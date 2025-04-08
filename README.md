@@ -5,14 +5,14 @@
   )](
   <https://pypi.org/project/jason-json/>
 ) [![Maintainability](
-  <https://api.codeclimate.com/v1/badges/20d58be4ccf5c4c8e008/maintainability>
+  <https://qlty.sh/badges/b90eab11-ee5f-4f14-aea8-452bcd08d023/maintainability.svg>
   )](
-    <https://codeclimate.com/github/eggplants/jason-json/maintainability>
-) [![Test Coverage](
-  <https://api.codeclimate.com/v1/badges/20d58be4ccf5c4c8e008/test_coverage>
+  <https://qlty.sh/gh/eggplants/projects/jason-json>
+) [![Code Coverage](
+  <https://qlty.sh/badges/b90eab11-ee5f-4f14-aea8-452bcd08d023/test_coverage.svg>
   )](
-    <https://codeclimate.com/github/eggplants/jason-json/test_coverage>
-  ) [![pre-commit.ci status](
+  <https://qlty.sh/gh/eggplants/projects/jason-json>
+) [![pre-commit.ci status](
   <https://results.pre-commit.ci/badge/github/eggplants/jason-json/master.svg>
   )](
   <https://results.pre-commit.ci/latest/github/eggplants/jason-json/master>

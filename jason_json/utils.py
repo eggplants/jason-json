@@ -5,28 +5,46 @@ from __future__ import annotations
 import re
 import urllib.request
 from datetime import datetime, timezone
-from http.client import HTTPResponse
 from typing import TYPE_CHECKING, cast
 
 import bs4
 
 if TYPE_CHECKING:
+    from http.client import HTTPResponse
+
     from .model_types import BusinessTime, Data, Shop
 
 
 def get(url: str) -> bytes | None:
-    """Fetch source from given URL."""
+    """Fetch source from given URL.
+
+    Args:
+        url (str): URL to fetch.
+
+    Returns:
+        bytes | None: Source bytes if successful, None otherwise.
+    """
     if not url.startswith(("http:", "https:")):
         msg = "URL must start with 'http:' or 'https:'"
         raise ValueError(msg)
 
     with urllib.request.urlopen(url) as response:  # noqa: S310
-        res = cast(HTTPResponse, response)
+        res = cast("HTTPResponse", response)
         return res.read() if res.readable() else None
 
 
 def parse(source: bytes) -> Data:
-    """Parse source and return data."""
+    """Parse source and return data.
+
+    Args:
+        source (bytes): Source bytes to parse.
+
+    Returns:
+        Data: Parsed data.
+
+    Raises:
+        ValueError: If source is None.
+    """
     bs = bs4.BeautifulSoup(source, features="lxml")
     prefs = bs.select("div.elementor-toggle-item")
     data: Data = {}

@@ -12,7 +12,10 @@ from tap import Tap
 from . import __version__
 
 
-class CustomFormatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter):
+class CustomFormatter(
+    argparse.ArgumentDefaultsHelpFormatter,
+    argparse.RawDescriptionHelpFormatter,
+):
     pass
 
 
@@ -33,7 +36,11 @@ class Args(Tap):
             max_help_position=25,
         )
         self.add_argument("-i", "--indent", help="number of indentation spaces in json")
-        self.add_argument("-O", "--overwrite", help="overwrite if save path already exists")
+        self.add_argument(
+            "-O",
+            "--overwrite",
+            help="overwrite if save path already exists",
+        )
         self.add_argument("-s", "--save", help="save json to given path")
         self.add_argument("-u", "--url", help="target url")
         self.add_argument(
