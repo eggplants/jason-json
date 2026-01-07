@@ -38,20 +38,21 @@ def main(test_args: list[str] | None = None) -> None:
     if not args.save:
         print(json.dumps(data, indent=args.indent, ensure_ascii=False))  # noqa: T201
         sys.exit(0)
-    if args.save.exists() and not args.save.is_file():
+    if args.save is not None and args.save.exists() and not args.save.is_file():
         print(  # noqa: T201
             f"'{args.save}' is not a file.",
             file=sys.stderr,
         )
         sys.exit(1)
-    if args.save.is_file() and not args.overwrite:
+    if args.save is not None and args.save.is_file() and not args.overwrite:
         print(  # noqa: T201
             f"'{args.save}' already exists. Specify `-O` to overwrite.",
             file=sys.stderr,
         )
         sys.exit(1)
-    with args.save.open("w", encoding="utf-8", errors="ignore") as f:
-        json.dump(data, f, indent=args.indent, ensure_ascii=False)
+    if args.save is not None:
+        with args.save.open("w", encoding="utf-8", errors="ignore") as f:
+            json.dump(data, f, indent=args.indent, ensure_ascii=False)
 
 
 if __name__ == "__main__":
