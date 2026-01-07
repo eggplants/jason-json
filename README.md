@@ -4,18 +4,10 @@
   <https://img.shields.io/pypi/v/jason-json?color=blue>
   )](
   <https://pypi.org/project/jason-json/>
-) [![Maintainability](
-  <https://qlty.sh/badges/b90eab11-ee5f-4f14-aea8-452bcd08d023/maintainability.svg>
+) [![CI](
+  <https://github.com/eggplants/jason-json/actions/workflows/ci.yml/badge.svg>
   )](
-  <https://qlty.sh/gh/eggplants/projects/jason-json>
-) [![Code Coverage](
-  <https://qlty.sh/badges/b90eab11-ee5f-4f14-aea8-452bcd08d023/test_coverage.svg>
-  )](
-  <https://qlty.sh/gh/eggplants/projects/jason-json>
-) [![pre-commit.ci status](
-  <https://results.pre-commit.ci/badge/github/eggplants/jason-json/master.svg>
-  )](
-  <https://results.pre-commit.ci/latest/github/eggplants/jason-json/master>
+  <https://github.com/eggplants/jason-json/actions/workflows/ci.yml>
 )
 
 [![ghcr latest](

@@ -1,0 +1,35 @@
+{
+  "language": "en_US",
+  "words": [
+    "asyncio",
+    "distroless",
+    "docformat",
+    "junitxml",
+    "nonroot",
+    "pdoc",
+    "pipefail",
+    "pydocstyle",
+    "pymarkdown",
+    "pymarkdownlnt",
+    "pyproject",
+    "pytest",
+    "PYTHONUNBUFFERED",
+    "sdist",
+    "venv"
+  ],
+  "dictionaries": [
+    "companies",
+    "markdown",
+    "misc",
+    "softwareTerms",
+    "useCompounds"
+  ],
+  "ignorePaths": [
+    ".gitignore",
+    ".cspell.json"
+  ],
+  "features": {
+    "weighted-suggestions": true
+  },
+  "useGitignore": true
+}
