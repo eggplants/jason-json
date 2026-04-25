@@ -12,7 +12,7 @@ keywords = [
   "json",
   "scraping",
 ]
-license = { text = "MIT" }
+license = "MIT"
 authors = [ { name = "eggplants", email = "w10776e8w@yahoo.co.jp" } ]
 requires-python = ">=3.10,<4"
 classifiers = [
@@ -33,10 +33,9 @@ dependencies = [
   "typed-argument-parser>=1.10.1,<2",
   "types-beautifulsoup4>=4.12.0.20241020,<5",
 ]
-
 urls.repository = "https://github.com/eggplants/jason-json"
-scripts.jason-json = "jason_json.main:main"
 scripts."jason.json" = "jason_json.main:main"
+scripts.jason-json = "jason_json.main:main"
 
 [dependency-groups]
 dev = [
@@ -50,22 +49,19 @@ docs = [
   "pdoc>=16",
 ]
 
-[tool.hatch.version]
-source = "uv-dynamic-versioning"
-
-[tool.hatch.build.targets.sdist]
-include = [ "jason_json" ]
-
-[tool.hatch.build.targets.wheel]
-include = [ "jason_json" ]
+[tool.hatch]
+build.targets.sdist.include = [ "jason_json" ]
+build.targets.wheel.include = [ "jason_json" ]
+version.source = "uv-dynamic-versioning"
 
 [tool.uv]
-preview = true
+python-downloads = "never"
 default-groups = [
   "dev",
   "docs",
 ]
 exclude-newer = "P7D"
+preview = true
 
 [tool.ruff]
 line-length = 120
@@ -81,7 +77,7 @@ lint.ignore = [
 ]
 lint.per-file-ignores."tests/*.py" = [
   "D",
-  "S101", #    Use of assert detected
+  "S101", # Use of assert detected
 ]
 lint.allowed-confusables = [ "～" ]
 lint.mccabe.max-complexity = 18
