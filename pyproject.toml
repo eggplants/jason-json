@@ -50,9 +50,9 @@ docs = [
 ]
 
 [tool.hatch]
-build.targets.sdist.include = [ "jason_json" ]
-build.targets.wheel.include = [ "jason_json" ]
 version.source = "uv-dynamic-versioning"
+build.targets.wheel.include = [ "jason_json" ]
+build.targets.sdist.include = [ "jason_json" ]
 
 [tool.uv]
 python-downloads = "never"
