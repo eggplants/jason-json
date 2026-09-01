@@ -7,23 +7,32 @@ name = "jason-json"
 description = "Jason (https://jason.co.jp) JSON Builder"
 readme = "README.md"
 keywords = [
+  "cli",
   "japanese",
   "jason",
   "json",
   "scraping",
+  "supermarket",
+  "web-scraping",
 ]
 license = "MIT"
 authors = [ { name = "eggplants", email = "w10776e8w@yahoo.co.jp" } ]
 requires-python = ">=3.10,<4"
 classifiers = [
-  "Development Status :: 3 - Alpha",
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: End Users/Desktop",
   "License :: OSI Approved :: MIT License",
+  "Natural Language :: Japanese",
+  "Operating System :: OS Independent",
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14",
+  "Topic :: Internet :: WWW/HTTP",
+  "Topic :: Utilities",
   "Typing :: Typed",
 ]
 dynamic = [ "version" ]
@@ -33,7 +42,9 @@ dependencies = [
   "typed-argument-parser>=1.10.1,<2",
   "types-beautifulsoup4>=4.12.0.20241020,<5",
 ]
-urls.repository = "https://github.com/eggplants/jason-json"
+urls.Documentation = "https://egpl.dev/jason-json/"
+urls.Issues = "https://github.com/eggplants/jason-json/issues"
+urls.Repository = "https://github.com/eggplants/jason-json"
 scripts."jason.json" = "jason_json.main:main"
 scripts.jason-json = "jason_json.main:main"
 
