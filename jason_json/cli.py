@@ -1,4 +1,4 @@
-"""Main module."""
+"""Command line entry point for jason-json."""
 
 from __future__ import annotations
 

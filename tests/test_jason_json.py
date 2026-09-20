@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 
 from jason_json import __version__
-from jason_json.main import main
+from jason_json.cli import main
 
 
 def test_version() -> None:

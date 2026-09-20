@@ -45,8 +45,8 @@ dependencies = [
 urls.Documentation = "https://egpl.dev/jason-json/"
 urls.Issues = "https://github.com/eggplants/jason-json/issues"
 urls.Repository = "https://github.com/eggplants/jason-json"
-scripts."jason.json" = "jason_json.main:main"
-scripts.jason-json = "jason_json.main:main"
+scripts."jason.json" = "jason_json.cli:main"
+scripts.jason-json = "jason_json.cli:main"
 
 [dependency-groups]
 dev = [
