@@ -24,7 +24,7 @@ class Args(Tap):
 
     indent: int = 2
     overwrite: bool = False
-    save: Path | None = None  # type: ignore[assignment]
+    save: Path | None = None  # ty: ignore[incompatible-attribute-override]
     url: str = "https://jason.co.jp/network"
     version: bool = False
 
